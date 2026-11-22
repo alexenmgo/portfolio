@@ -1,19 +1,19 @@
 export const projects = [
   {
     "slug": "guanin",
-    "title": "Guanín — Remittances to Capital Markets Platform",
+    "title": "Guanín — Remittances to Capital Markets",
     "section": "featured",
-    "status": "Public / Competition",
-    "summary": "Fintech proposal for the SIMV 2026 competition connecting remittances from the Dominican diaspora with local capital-market investment.",
-    "problem": "How can part of the remittances received by Dominican households be converted into long-term savings and investment without disrupting the existing remittance flow?",
-    "approach": "Segmented remittance-receiving households using ENCFT microdata, estimated investable capacity by segment, calibrated survey amounts to the official 2025 remittance aggregate, and designed a functional product prototype.",
-    "highlights": [
-      "645 recipient households in the analytical sample, representing ~407,000 nationally",
-      "7 household-level features and K-means with k=5",
-      "Ward hierarchical validation with ARI = 0.49",
-      "Estimated annual market potential: US$58M–US$289M",
-      "Base scenario: US$139M",
-      "Landing page + 11-screen interactive app + walkthrough video"
+    "status": "Functional Demo · SIMV 2026",
+    "accent": "gold",
+    "short": "A tested interactive fintech demo that connects remittances from the Dominican diaspora with investment in the Dominican capital market.",
+    "problem": "Dominican households receive nearly US$12 billion in remittances each year, but only a limited share is converted into formal long-term savings or capital-market investment.",
+    "approach": "Designed Guanín as a neutral bridge between remittance companies and SIMV-authorized broker-dealers. The product lets senders automatically direct a percentage of each remittance into an investment account while the family receives the remainder through the normal channel.",
+    "impact": [
+      "645 remittance-receiving households analyzed, representing ~407,000 nationally",
+      "Five household segments built with K-means and validated with Ward clustering (ARI = 0.49)",
+      "Market potential estimated at US$58M–US$289M annually; base scenario US$139M",
+      "Functional landing page and 11-screen interactive application",
+      "Full walkthrough video and 10-page competition paper"
     ],
     "tools": [
       "Python",
@@ -25,30 +25,44 @@ export const projects = [
       "HTML/CSS/JS",
       "Netlify"
     ],
+    "images": [
+      "/projects/guanin-welcome.webp",
+      "/projects/guanin-beneficiary.webp",
+      "/projects/guanin-goal.webp",
+      "/projects/guanin-remittance.webp",
+      "/projects/guanin-result.webp",
+      "/projects/guanin-home.webp"
+    ],
     "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
+      "Live Demo": "https://guanin-simv.netlify.app/",
+      "Watch Video": "https://vimeo.com/1214156407?share=copy",
+      "View Paper": "/documents/Guanin_SIMV_2026.pdf"
     },
-    "images": []
+    "video": "https://player.vimeo.com/video/1214156407",
+    "methodology": [
+      "Built seven household variables: remittance dependence, per-capita income, asset index, head-of-household labor formality, potential banking score, age and household size.",
+      "Standardized the variables and applied K-means with k=5; used Ward hierarchical clustering as a robustness check.",
+      "Calibrated survey remittance amounts to the official 2025 BCRD aggregate of US$11.8663B using one common calibration factor.",
+      "Applied segment-specific investable percentages and three adoption scenarios to estimate total addressable market."
+    ]
   },
   {
     "slug": "aml-plaft",
     "title": "Portal AML-PLAFT — Quantitative Decision Engine",
     "section": "featured",
-    "status": "Professional / Private",
-    "summary": "Production AML platform for 14,459 clients, combining verified economic capacity, behavioral analytics and deterministic AML rules to support auditable profile decisions.",
-    "problem": "Define client legitimization profiles objectively, reproducibly and defensibly under Law 155-17, while avoiding both over-restriction and over-exposure.",
-    "approach": "Built a deterministic engine combining verified financial capacity, q95 ticket behavior, EWMA deposits, EWMA volatility, SHAP explanations, behavioral drift and hard AML bands.",
-    "highlights": [
+    "status": "Professional · Private",
+    "accent": "green",
+    "short": "Production AML platform for 14,459 clients combining verified economic capacity, behavioral analytics, deterministic AML bands and auditable deployment on GCP.",
+    "problem": "Define each client legitimization profile — the operational amount authorized under Law 155-17 — objectively, reproducibly and defensibly, while avoiding both over-restriction and excessive exposure.",
+    "approach": "Led the technical modernization of a legacy AML portal, migrating the operational layer to GCP and introducing a deterministic quantitative decision engine fed by verified capacity, q95 transaction behavior, EWMA deposits, volatility, SHAP explanations and behavioral drift. Hard AML rules impose a ceiling by risk band.",
+    "impact": [
       "14,459 clients processed",
       "2,846 SUBIR · 1,816 BAJAR · 616 MANTENER · 9,181 insufficient data",
-      "Net operational capacity change: +RD$31,255 MM",
+      "Net operational-capacity change: +RD$31,255 MM with AML controls preserved",
       "Batch throughput improved from 5.7/min to 148/min (~26×)",
-      "Full portfolio processed in ~100 minutes with 0 errors",
-      "Immutable audit log and reproducibility hash per decision",
-      "Hybrid GCP architecture, Cloud Run deployment and Vertex AI integration"
+      "Full portfolio processed in ~100 minutes with 0 batch errors",
+      "Immutable audit trail and reproducibility hash for every decision",
+      "21 tables + 14 views + 7 stored procedures migrated to the new GCP operational layer"
     ],
     "tools": [
       "Python",
@@ -62,363 +76,309 @@ export const projects = [
       "Cloud Run",
       "Artifact Registry",
       "IAM",
-      "Vertex AI Gemini"
+      "Vertex AI"
     ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
+    "images": [
+      "/projects/aml-portal.webp"
+    ],
+    "links": {},
+    "methodology": [
+      "Verified economic capacity: reconcile declared KYC capacity with external/verified sources and retain the maximum defensible value.",
+      "Behavior: q95 ticket size, EWMA deposits, EWMA volatility, SHAP top drivers and a behavioral-drift score.",
+      "AML band: deterministic BAJA / MEDIA / ALTA / CRITICO rules based on factors such as PEP status, FATF jurisdiction, profile variation, structured activity and seasonality.",
+      "Decision thresholds: raise if recommended > current × 1.10; lower if recommended < current × 0.90; otherwise maintain.",
+      "Deployed as a multi-stage Docker image to Artifact Registry and Cloud Run using dedicated service accounts and controlled Vertex AI access."
+    ]
+  },
+  {
+    "slug": "statement-ai",
+    "title": "Statement · AI — Bank Statement Intelligence",
+    "section": "featured",
+    "status": "AI · Document Intelligence",
+    "accent": "blue",
+    "short": "An end-to-end workflow that classifies bank statements, extracts structured transactions, validates accounting consistency and turns them into a client consumption profile and aggregate marketing insights.",
+    "problem": "Bank statements arrive as PDFs or images with different layouts. Manual extraction and transaction classification is slow, inconsistent and difficult to scale.",
+    "approach": "Built a multi-stage Gemini workflow with schema-constrained JSON, validation and model fallback. Transactions are classified through a catalog-first cascade, semantic similarity and Gemini with examples; new concepts are learned into the catalog.",
+    "impact": [
+      "Pilot volume: 31 clients · 303 documents · 99 bank statements · 6,565 transactions",
+      "Automatic validation pass rate improved from 64% → 75% → 81% across iterations",
+      "Catalog grew to 1,944 learned concepts across 10 groups",
+      "On a long six-page statement, the stronger model captured 303/303 transactions and reconciled totals",
+      "Three-page chunking reduced the long-document run to ~4.6 minutes",
+      "Client 360 and aggregate Marketing views built on synthetic/demo data"
+    ],
+    "tools": [
+      "Python",
+      "Gemini 3.5 Flash-Lite",
+      "Gemini 3.5 Flash",
+      "Gemini 3.8 Flash",
+      "LLMs",
+      "RAG",
+      "Structured JSON",
+      "Validation",
+      "Google Cloud"
+    ],
+    "images": [
+      "/projects/statement-client360-a.webp",
+      "/projects/statement-consumption.webp",
+      "/projects/statement-market-a.webp",
+      "/projects/statement-market-b.webp",
+      "/projects/statement-client360-b.webp"
+    ],
+    "links": {},
+    "methodology": [
+      "Upload: client code + bank statements in PDF or image form; documents process in parallel.",
+      "Classification: Gemini 3.5 Flash-Lite identifies document type.",
+      "Extraction: fixed JSON schema; ≤3 pages use 3.5 Flash, longer documents use 3.8 Flash in three-page blocks.",
+      "Validation: balance chain, bank totals and statement period. Failed checks trigger a stronger-model retry or human review.",
+      "Transaction taxonomy: exact catalog match → semantic similarity ≥0.95 → Gemini with five examples for 0.80–0.95 → Gemini plus web lookup of merchant name below 0.80.",
+      "Analytics: deduplication, currency separation, individual consumption profile and anonymized aggregate statistics for Marketing."
+    ]
   },
   {
     "slug": "post-crash",
-    "title": "Post-Crash Stock Alert System — Quantitative Validation",
+    "title": "Post-Crash Stock Alert System",
     "section": "featured",
-    "status": "Personal / Research",
-    "summary": "Research system testing whether stocks in the S&P 500 that fall more than 18% can be ranked to identify better two-week rebounds.",
-    "problem": "A signal looked statistically meaningful in recent data, but the key question was whether it actually generalized out of sample.",
-    "approach": "Ran seven preregistered iterations with purged walk-forward evaluation, grouped permutation tests, Benjamini-Hochberg correction, matched controls, placebo tests and a point-in-time index universe.",
-    "highlights": [
-      "Initial 2018–2026 effect: +0.61 pp, p=0.039",
-      "Replication on 2010–2018 reversed to −0.96 pp",
-      "Diagnosis: survivorship-correlated features rather than rebound quality",
-      "Negative result retained as the final conclusion",
-      "Production forward-testing system with append-only hash-chained logging"
+    "status": "Personal · Quantitative Research",
+    "accent": "navy",
+    "short": "A rigorous attempt to test whether S&P 500 stocks falling more than 18% can be ranked for better two-week rebounds — including a negative out-of-sample result and a production forward test.",
+    "problem": "A recent-sample signal appeared statistically significant. The real question was whether it survived point-in-time reconstruction, multiple-testing controls and replication on an earlier period.",
+    "approach": "Ran seven preregistered iterations using purged walk-forward validation, grouped permutation tests, Benjamini-Hochberg correction, placebo tests, matched controls and a reconstructed point-in-time S&P 500 universe.",
+    "impact": [
+      "2018–2026 shortlist effect: +0.61 pp (p=0.039)",
+      "2010–2018 point-in-time replication: −0.96 pp (p=0.90)",
+      "Diagnosis: the model was learning features correlated with company survival, not rebound quality",
+      "Negative result retained as the research conclusion",
+      "Forward-test registry stores every candidate, not just emitted alerts",
+      "Append-only hash chain, frozen model_id and separate outcome file for reproducibility"
     ],
     "tools": [
       "Python",
       "yfinance",
       "scikit-learn",
       "GitHub Actions",
-      "Statistical Testing",
-      "Walk-forward Validation"
+      "Permutation Testing",
+      "Walk-forward Validation",
+      "Hash-chained Logging"
+    ],
+    "images": [
+      "/projects/post-crash-email.webp"
     ],
     "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
+      "GitHub": "https://github.com/alexenmgo/alertas-dip"
     },
-    "images": []
+    "methodology": [
+      "Preregistered hypotheses and acceptance criteria before each iteration.",
+      "Purged walk-forward design to reduce leakage across time.",
+      "Permutation tests grouped by week/date and Benjamini-Hochberg correction for multiplicity.",
+      "Point-in-time index membership reconstructed to eliminate survivorship bias.",
+      "Production forward test records all candidate dips, the rank, model prediction, shortlist status and immutable hashes."
+    ]
   },
   {
-    "slug": "bank-statements-ai",
-    "title": "AI-Powered Bank Statement Analysis",
+    "slug": "due-diligence-game",
+    "title": "Due Diligence — Compliance Training Game",
     "section": "featured",
-    "status": "Professional / Private",
-    "summary": "Document-intelligence workflow for extracting, structuring and validating information from bank statements using LLMs and rule-based checks.",
-    "problem": "Bank statements arrive in varied layouts and formats, making manual extraction slow and inconsistent.",
-    "approach": "Benchmarked model variants, used structured JSON outputs, added accounting validations and designed fallback logic for inconsistent or invalid results.",
-    "highlights": [
-      "LLM-based extraction from unstructured PDFs",
-      "Structured financial fields and validation rules",
-      "Fallback model strategy when outputs fail checks",
-      "Train/test separation considerations by client and bank"
+    "status": "Interactive Learning · Team Project",
+    "accent": "lime",
+    "short": "An interactive Genially game that places the learner in the role of a compliance officer reviewing fictional client files and making approve/reject decisions under time pressure.",
+    "problem": "Traditional compliance training can be passive. The objective was to turn the new AML/CFT manual into a memorable decision-based learning experience.",
+    "approach": "Created fictional cases, documents, client images, audio and decision consequences. Generative AI supported creation of synthetic materials, while the compliance manual provided the technical rules.",
+    "impact": [
+      "Interactive case-based learning experience",
+      "Physical-person, self-employed and legal-entity file scenarios",
+      "Incorrect decisions lead to narrative consequences",
+      "Synthetic client documents and visuals created for training",
+      "Built collaboratively by Alexis Gómez, Yunior Custodio and Shelsy Alix"
     ],
     "tools": [
-      "Python",
-      "LLMs",
-      "NLP",
-      "GCP",
-      "Document AI",
-      "Gemini",
-      "JSON Validation"
-    ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
-  },
-  {
-    "slug": "cici",
-    "title": "Cici — Conversational AI Agent",
-    "section": "featured",
-    "status": "In Progress / Internal Collaboration",
-    "summary": "Conversational AI experience developed jointly with Marketing to answer educational client questions and trigger workflows.",
-    "problem": "Provide clients with a more natural, interactive way to access educational information and initiate selected workflows.",
-    "approach": "Built around Vertex AI Live with live avatar, function calling, APIs, Google Search and a React/TypeScript front end deployed on Cloud Run.",
-    "highlights": [
-      "Live voice/video conversational experience",
-      "Function calling and workflow triggering",
-      "Collaboration with Marketing on tone and client-facing content",
-      "Still in development; not yet public"
-    ],
-    "tools": [
-      "Vertex AI Live",
-      "Gemini Live",
-      "Function Calling",
-      "APIs",
-      "React",
-      "TypeScript",
-      "Cloud Run"
-    ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
-  },
-  {
-    "slug": "compliance-game",
-    "title": "Compliance Training Game",
-    "section": "featured",
-    "status": "Internal / Learning Experience",
-    "summary": "Gamified compliance training experience that uses simulated cases and decision-making scenarios to reinforce AML/CTF concepts.",
-    "problem": "Traditional compliance training can be passive and disconnected from the decisions employees face in practice.",
-    "approach": "Created an interactive case-based experience with fictional documents, client scenarios, inconsistencies and decision consequences.",
-    "highlights": [
-      "Scenario-based compliance training",
-      "Fictional documents and client cases",
-      "Decision paths and consequences",
-      "Designed as an internal learning experience"
-    ],
-    "tools": [
-      "Gamification",
+      "Genially",
+      "Generative AI",
       "Compliance",
+      "Gamification",
       "Instructional Design",
-      "Interactive Prototyping"
+      "Interactive Storytelling"
+    ],
+    "images": [
+      "/projects/game-cover-clean.webp",
+      "/projects/game-manual.webp"
     ],
     "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
+      "Play Demo": "https://view.genially.com/68e7262b81a3cf59c46a98ed"
     },
-    "images": []
+    "methodology": [
+      "Map manual requirements into reviewable case rules.",
+      "Create synthetic files and supporting client documentation.",
+      "Introduce decision pressure and consequences to reinforce attention to detail.",
+      "Use interactive navigation and audio/visual elements to make training more immersive."
+    ]
   },
   {
     "slug": "bi-dashboards",
-    "title": "BI Dashboards — Compliance, Investor & HR",
+    "title": "BI Dashboards — Compliance, Investor & Employee Analytics",
     "section": "internal",
-    "status": "Professional / Visual",
-    "summary": "Business intelligence dashboards built for different operational areas, with ready-to-show screenshots for the portfolio.",
-    "problem": "Teams needed clearer, centralized views of operational indicators instead of fragmented manual reporting.",
-    "approach": "Designed interactive dashboards tailored to Compliance, investor/client analysis and HR use cases.",
-    "highlights": [
-      "Compliance monitoring views",
-      "Investor/client analytics views",
-      "HR management indicators",
-      "Portfolio-ready screenshots available"
+    "status": "Business Intelligence · Visual",
+    "accent": "cyan",
+    "short": "A portfolio of operational dashboards for compliance monitoring, investor/client profiles and employee transaction analysis.",
+    "problem": "Operational teams needed centralized, decision-ready views instead of fragmented spreadsheets and manual reporting.",
+    "approach": "Designed dashboards around user workflows: executive risk monitoring, client/investor 360 views, employee-transaction monitoring and client portfolio/risk analytics.",
+    "impact": [
+      "Compliance and executive risk views",
+      "Investor/client profile and portfolio views",
+      "Employee transaction monitoring portal",
+      "Client portfolio, PEP and risk overview",
+      "Screenshots anonymized for public portfolio use"
     ],
     "tools": [
       "Power BI",
       "Looker Studio",
       "SQL",
+      "BigQuery",
       "Excel",
       "Google Sheets",
       "Data Visualization"
     ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
     "images": [
-      "/projects/bi-compliance.jpg",
-      "/projects/bi-investor.jpg",
-      "/projects/bi-hr.jpg"
+      "/projects/bi-investor-profile-1.webp",
+      "/projects/bi-investor-profile-2.webp",
+      "/projects/bi-employees-portal.webp",
+      "/projects/bi-clients-overview.webp"
+    ],
+    "links": {},
+    "methodology": [
+      "Translate business questions into KPIs and drill-down paths.",
+      "Build reusable data transformations and calculated metrics.",
+      "Design filters, client-level detail and executive summaries for non-technical users.",
+      "Iterate with stakeholders and sanitize screenshots before external use."
     ]
-  },
-  {
-    "slug": "suggestion-box",
-    "title": "Anonymous Suggestion Box",
-    "section": "internal",
-    "status": "Internal Tool",
-    "summary": "Anonymous internal feedback tool designed to centralize suggestions while preserving confidentiality.",
-    "problem": "Create a simple channel for collecting internal ideas and feedback without exposing the identity of the contributor.",
-    "approach": "Designed a lightweight internal workflow focused on accessibility, confidentiality and centralized review.",
-    "highlights": [
-      "Anonymous submissions",
-      "Centralized feedback",
-      "Internal process improvement"
-    ],
-    "tools": [
-      "Workflow Design",
-      "Automation",
-      "Google Workspace"
-    ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
   },
   {
     "slug": "vacation-app",
     "title": "Compliance Team Vacation App",
     "section": "internal",
-    "status": "Internal Tool",
-    "summary": "AppSheet application for managing and visualizing vacation planning within the Compliance team.",
-    "problem": "Vacation coordination required a clearer shared view of requests and team availability.",
-    "approach": "Built a low-code internal app to organize requests and improve visibility of team schedules.",
-    "highlights": [
-      "AppSheet app",
-      "Internal schedule visibility",
-      "Process standardization"
+    "status": "AppSheet · Internal Tool",
+    "accent": "green",
+    "short": "A low-code AppSheet tool created to organize vacation planning and improve team visibility around leave schedules.",
+    "problem": "Vacation planning was difficult to coordinate in shared spreadsheets and required clearer visibility of team availability.",
+    "approach": "Built a simple employee-facing AppSheet workflow to centralize leave information and make schedule review easier.",
+    "impact": [
+      "Centralized vacation planning",
+      "Shared employee availability view",
+      "Low-code internal process improvement"
     ],
     "tools": [
       "AppSheet",
       "Google Sheets",
       "Low-code Automation"
     ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
-  },
-  {
-    "slug": "metamap-address",
-    "title": "MetaMap Address Automation",
-    "section": "internal",
-    "status": "Internal Automation",
-    "summary": "Automation that retrieves the most recent verified address associated with a client ID and writes it into an operational spreadsheet.",
-    "problem": "Manual lookup of identity-verification records was repetitive and time-consuming.",
-    "approach": "Used client ID lookup, recent verification selection and automatic transfer of the address field into Google Sheets.",
-    "highlights": [
-      "Automated lookup",
-      "Recent verification logic",
-      "Spreadsheet integration"
+    "images": [
+      "/projects/vacation-app.webp"
     ],
-    "tools": [
-      "Google Apps Script",
-      "APIs",
-      "Google Sheets",
-      "KYC Automation"
-    ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
-  },
-  {
-    "slug": "fatca-crs",
-    "title": "FATCA / CRS Reporting Automation",
-    "section": "internal",
-    "status": "Regulatory Automation",
-    "summary": "Data preparation and validation workflow supporting FATCA/CRS reporting and XML generation.",
-    "problem": "Regulatory submissions require strict formatting and completeness across multiple fields.",
-    "approach": "Implemented checks for identifiers, reportable jurisdiction, ISO country codes, dates and other submission-critical fields before XML generation.",
-    "highlights": [
-      "Field validation",
-      "Country-code checks",
-      "Date-format controls",
-      "Excel-to-XML workflow"
-    ],
-    "tools": [
-      "Python",
-      "Excel",
-      "XML",
-      "Data Validation",
-      "Regulatory Reporting"
-    ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
+    "links": {},
+    "methodology": [
+      "Model team/leave data in Google Sheets.",
+      "Build employee and request views in AppSheet.",
+      "Use role-appropriate views to simplify review and schedule coordination."
+    ]
   },
   {
     "slug": "poverty-prediction",
-    "title": "Monetary Poverty Prediction — ENFT 2018–2022",
+    "title": "Monetary Poverty Prediction with Machine Learning",
     "section": "research",
-    "status": "Academic / Data Science",
-    "summary": "Machine-learning research comparing multiple classification approaches for predicting monetary poverty in the Dominican Republic.",
-    "problem": "Explore whether household-level characteristics can support useful predictive classification of monetary poverty.",
-    "approach": "Compared Logistic Regression, Decision Trees, Random Forest, SVM, XGBoost and Neural Networks.",
-    "highlights": [
-      "Recall ~0.66",
-      "AUC ~0.69",
-      "Multiple model benchmark",
-      "Social-policy application"
+    "status": "Data Science · Public Policy",
+    "accent": "blue",
+    "short": "Machine-learning research using multidimensional household deprivation variables to predict monetary poverty and extreme poverty in the Dominican Republic.",
+    "problem": "Income alone may not capture the full vulnerability of households. The research tested whether non-monetary characteristics can help predict monetary poverty and improve social-program targeting.",
+    "approach": "Combined ENCFT microdata with SIUBEN-inspired multidimensional indicators and benchmarked Logistic Regression, Random Forest, SVM, XGBoost and Neural Networks.",
+    "impact": [
+      "164,737 household records across 2018, 2019, 2021 and early 2022",
+      "15 independent multidimensional variables",
+      "Random Forest performed best for general poverty with accuracy close to 80%",
+      "XGBoost was especially informative for extreme poverty",
+      "Key factors included overcrowding, educational delay, lack of health insurance and absence of household income"
     ],
     "tools": [
       "Python",
       "scikit-learn",
+      "Random Forest",
       "XGBoost",
       "SVM",
-      "Random Forest",
-      "Neural Networks"
+      "Neural Networks",
+      "Policy Analytics"
     ],
+    "images": [],
     "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
+      "View Paper": "/documents/Poverty_Prediction_ML_Dominican_Republic.pdf"
     },
-    "images": []
+    "methodology": [
+      "Construct poverty targets from official per-capita income thresholds.",
+      "Create multidimensional predictors for housing, services, education, labor status and social protection.",
+      "Normalize predictors and address class imbalance during modeling.",
+      "Compare multiple supervised-learning models and analyze feature importance/ROC performance."
+    ]
   },
   {
     "slug": "law-28-01",
     "title": "Industrial Policy Evaluation — Law 28-01",
     "section": "research",
-    "status": "Academic / Public Policy",
-    "summary": "Comparative evaluation of industrial policy in the Dominican Republic's border region.",
-    "problem": "Assess whether tax incentives alone were sufficient to generate stronger development outcomes in border provinces.",
-    "approach": "Analyzed poverty, HDI, health, infrastructure, banking and exports across seven border provinces using public administrative sources.",
-    "highlights": [
-      "Seven border provinces",
-      "Multi-dimensional regional analysis",
-      "Finding: incentives without complementary public investment limited impact"
+    "status": "Master of Public Policy · KDI",
+    "accent": "navy",
+    "short": "Evaluation of whether industrial incentives under Law 28-01 translated into economic and social development across the Dominican Republic’s seven border provinces.",
+    "problem": "The border region remained one of the country’s least developed areas despite a long-running incentive regime intended to attract investment and reduce regional disparities.",
+    "approach": "Combined quantitative comparison of demographic, social and economic indicators with qualitative evidence from interviews, news articles and official reports.",
+    "impact": [
+      "Seven border provinces evaluated",
+      "Northern provinces showed stronger business formation and poverty/unemployment improvements than the south",
+      "The law did not close social disparities with the rest of the country overall",
+      "Infrastructure, human capital and lack of complementary public investment were major constraints",
+      "Policy conclusion: fiscal incentives alone were insufficient for balanced regional development"
     ],
     "tools": [
       "Economic Analysis",
       "Public Policy",
       "Statistics",
+      "Regional Development",
       "R",
       "Excel",
       "Data Visualization"
     ],
+    "images": [],
     "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
+      "View Paper": "/documents/Law_28_01_Border_Industrial_Policy.pdf"
     },
-    "images": []
+    "methodology": [
+      "Compare border provinces before and after the policy with national benchmarks.",
+      "Track poverty, HDI, health, education, infrastructure, labor structure, banking and exports.",
+      "Use qualitative evidence to explain why outcomes diverged between northern and southern provinces.",
+      "Translate empirical findings into policy recommendations around complementary public investment."
+    ]
   },
   {
-    "slug": "environmental-policy-research",
-    "title": "Environmental & Policy Research",
+    "slug": "environmental-policy",
+    "title": "Environmental Policy Research",
     "section": "research",
-    "status": "Research",
-    "summary": "Selected policy research on environmental economics, including Costa Rica's Payments for Environmental Services model.",
-    "problem": "Understand how environmental financing mechanisms translate into policy outcomes and what implementation challenges remain.",
-    "approach": "Reviewed financing structures, program results and economic-policy issues such as spillovers and free-rider effects.",
-    "highlights": [
-      "Costa Rica PES / FONAFIFO",
-      "Fuel-tax financing",
-      "Policy-effectiveness analysis"
+    "status": "Economic & Policy Research",
+    "accent": "green",
+    "short": "Selected research on environmental economics and policy, including Costa Rica’s Payments for Environmental Services model.",
+    "problem": "How can environmental financing programs create measurable conservation incentives while limiting spillovers, free-riding and implementation gaps?",
+    "approach": "Reviewed program design, financing mechanisms, outcomes and policy challenges using economic and institutional analysis.",
+    "impact": [
+      "Costa Rica PES / FONAFIFO case study",
+      "Fuel-tax financing mechanism analyzed",
+      "Policy design challenges including spillovers and free-rider effects"
     ],
     "tools": [
-      "Policy Analysis",
       "Environmental Economics",
+      "Policy Analysis",
       "Research",
       "Data Interpretation"
     ],
-    "links": {
-      "demo": "",
-      "github": "",
-      "video": "",
-      "caseStudy": ""
-    },
-    "images": []
+    "images": [],
+    "links": {},
+    "methodology": [
+      "Review institutional design and funding structure.",
+      "Compare intended incentives with observed implementation outcomes.",
+      "Identify design limitations and policy trade-offs."
+    ]
   }
 ] as const;

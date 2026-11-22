@@ -1,2 +1,17 @@
-import { ExternalLink, Github, PlayCircle, FileText } from "lucide-react";
-export default function ProjectCard({project}:{project:any}){const imgs=(project.images||[]).filter((x:string)=>x);return <article className="project-card">{imgs.length>0&&<div className={`media-strip media-${Math.min(imgs.length,3)}`}>{imgs.slice(0,3).map((src:string,i:number)=><div className="media-placeholder" key={src}><img src={src} alt={`${project.title} screenshot ${i+1}`} onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display="none"; const n=e.currentTarget.nextElementSibling as HTMLElement|null; if(n)n.style.display="grid";}}/><div className="missing-media">Add screenshot<br/><code>{src.replace("/projects/","")}</code></div></div>)}</div>}<div className="card-meta"><span className="status">{project.status}</span></div><h3>{project.title}</h3><p className="summary">{project.summary}</p><div className="mini-block"><b>Problem</b><p>{project.problem}</p></div><div className="mini-block"><b>Approach</b><p>{project.approach}</p></div><ul className="highlights">{project.highlights.slice(0,5).map((x:string)=><li key={x}>{x}</li>)}</ul><div className="tags">{project.tools.map((x:string)=><span key={x}>{x}</span>)}</div>{(project.links.demo||project.links.github||project.links.video||project.links.caseStudy)&&<div className="project-links">{project.links.demo&&<a href={project.links.demo} target="_blank">Live Demo <ExternalLink size={15}/></a>}{project.links.github&&<a href={project.links.github} target="_blank">GitHub <Github size={15}/></a>}{project.links.video&&<a href={project.links.video} target="_blank">Video <PlayCircle size={15}/></a>}{project.links.caseStudy&&<a href={project.links.caseStudy} target="_blank">Case Study <FileText size={15}/></a>}</div>}</article>}
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+export default function ProjectCard({ project, index }: { project: any; index: number }) {
+  return <article className="project-card">
+    {project.images?.[0] && <Link className="card-media" href={`/projects/${project.slug}`}>
+      <img src={project.images[0]} alt={`${project.title} preview`} />
+    </Link>}
+    <div className="card-body">
+      <div className="card-meta"><span>{String(index+1).padStart(2,"0")}</span><span className={`pill ${project.accent}`}>{project.status}</span></div>
+      <h3>{project.title}</h3>
+      <p>{project.short}</p>
+      <div className="tags">{project.tools.slice(0,6).map((t:string)=><span key={t}>{t}</span>)}</div>
+      <Link className="view-link" href={`/projects/${project.slug}`}>View project <ArrowUpRight size={16}/></Link>
+    </div>
+  </article>
+}
