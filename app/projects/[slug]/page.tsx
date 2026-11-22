@@ -19,5 +19,5 @@ export default async function ProjectPage({params}:{params:Promise<{slug:string}
  <section className="detail-section"><span className="detail-label">Methodology</span><h2>How the solution works</h2><ol className="method-list">{p.methodology.map((x:string)=><li key={x}>{x}</li>)}</ol></section>
  <section className="detail-section"><span className="detail-label">Results</span><h2>Key outcomes</h2><div className="outcome-grid">{p.impact.map((x:string)=><div className="outcome" key={x}>{x}</div>)}</div></section>
  <section className="detail-section"><span className="detail-label">Stack</span><h2>Tools & technologies</h2><div className="skill-cloud">{p.tools.map((x:string)=><span key={x}>{x}</span>)}</div></section>
- </article><footer className="shell footer"><span>© 2026 Alexis Gómez</span><a href="mailto:alexisgop@kdis.ac.kr">alexisgop@kdis.ac.kr</a></footer></main>
+ </article><footer className="shell footer"><span>© 2026 Alexis Gómez</span><a href="https://www.linkedin.com/in/alexis-enmanuel-g%C3%B3mez-1340b4173/" target="_blank">LinkedIn</a></footer></main>
 }

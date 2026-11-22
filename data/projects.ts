@@ -1,11 +1,11 @@
 export const projects = [
   {
     "slug": "guanin",
-    "title": "Guanín — Remittances to Capital Markets",
+    "title": "Guanín - Remittance Fintech App",
     "section": "featured",
     "status": "Functional Demo · SIMV 2026",
     "accent": "gold",
-    "short": "A tested interactive fintech demo that connects remittances from the Dominican diaspora with investment in the Dominican capital market.",
+    "short": "A functional fintech app demo that connects remittances from the Dominican diaspora with investment in the Dominican capital market.",
     "problem": "Dominican households receive nearly US$12 billion in remittances each year, but only a limited share is converted into formal long-term savings or capital-market investment.",
     "approach": "Designed Guanín as a neutral bridge between remittance companies and SIMV-authorized broker-dealers. The product lets senders automatically direct a percentage of each remittance into an investment account while the family receives the remainder through the normal channel.",
     "impact": [
@@ -26,6 +26,7 @@ export const projects = [
       "Netlify"
     ],
     "images": [
+      "/projects/guanin-cover.webp",
       "/projects/guanin-welcome.webp",
       "/projects/guanin-beneficiary.webp",
       "/projects/guanin-goal.webp",
@@ -48,12 +49,12 @@ export const projects = [
   },
   {
     "slug": "aml-plaft",
-    "title": "Portal AML-PLAFT — Quantitative Decision Engine",
+    "title": "Portal AML-PLAFT - Quantitative Decision Engine",
     "section": "featured",
     "status": "Professional · Private",
     "accent": "green",
     "short": "Production AML platform for 14,459 clients combining verified economic capacity, behavioral analytics, deterministic AML bands and auditable deployment on GCP.",
-    "problem": "Define each client legitimization profile — the operational amount authorized under Law 155-17 — objectively, reproducibly and defensibly, while avoiding both over-restriction and excessive exposure.",
+    "problem": "Define each client legitimization profile - the operational amount authorized under Law 155-17 - objectively, reproducibly and defensibly, while avoiding both over-restriction and excessive exposure.",
     "approach": "Led the technical modernization of a legacy AML portal, migrating the operational layer to GCP and introducing a deterministic quantitative decision engine fed by verified capacity, q95 transaction behavior, EWMA deposits, volatility, SHAP explanations and behavioral drift. Hard AML rules impose a ceiling by risk band.",
     "impact": [
       "14,459 clients processed",
@@ -91,8 +92,46 @@ export const projects = [
     ]
   },
   {
+    "slug": "due-diligence-game",
+    "title": "Due Diligence - Compliance Training Game",
+    "section": "featured",
+    "status": "Interactive Learning · Team Project",
+    "accent": "lime",
+    "short": "An interactive Genially game that places the learner in the role of a compliance officer reviewing fictional client files and making approve/reject decisions under time pressure.",
+    "problem": "Traditional compliance training can be passive. The objective was to turn the new AML/CFT manual into a memorable decision-based learning experience.",
+    "approach": "Created fictional cases, documents, client images, audio and decision consequences. Generative AI supported creation of synthetic materials, while the compliance manual provided the technical rules.",
+    "impact": [
+      "Interactive case-based learning experience",
+      "Physical-person, self-employed and legal-entity file scenarios",
+      "Incorrect decisions lead to narrative consequences",
+      "Synthetic client documents and visuals created for training",
+      "Built collaboratively by Alexis Gómez, Yunior Custodio and Shelsy Alix"
+    ],
+    "tools": [
+      "Genially",
+      "Generative AI",
+      "Compliance",
+      "Gamification",
+      "Instructional Design",
+      "Interactive Storytelling"
+    ],
+    "images": [
+      "/projects/game-cover-clean.webp",
+      "/projects/game-manual.webp"
+    ],
+    "links": {
+      "Play Demo": "https://view.genially.com/68e7262b81a3cf59c46a98ed"
+    },
+    "methodology": [
+      "Map manual requirements into reviewable case rules.",
+      "Create synthetic files and supporting client documentation.",
+      "Introduce decision pressure and consequences to reinforce attention to detail.",
+      "Use interactive navigation and audio/visual elements to make training more immersive."
+    ]
+  },
+  {
     "slug": "statement-ai",
-    "title": "Statement · AI — Bank Statement Intelligence",
+    "title": "Statement · AI - Bank Statement Intelligence",
     "section": "featured",
     "status": "AI · Document Intelligence",
     "accent": "blue",
@@ -141,7 +180,7 @@ export const projects = [
     "section": "featured",
     "status": "Personal · Quantitative Research",
     "accent": "navy",
-    "short": "A rigorous attempt to test whether S&P 500 stocks falling more than 18% can be ranked for better two-week rebounds — including a negative out-of-sample result and a production forward test.",
+    "short": "A rigorous attempt to test whether S&P 500 stocks falling more than 18% can be ranked for better two-week rebounds - including a negative out-of-sample result and a production forward test.",
     "problem": "A recent-sample signal appeared statistically significant. The real question was whether it survived point-in-time reconstruction, multiple-testing controls and replication on an earlier period.",
     "approach": "Ran seven preregistered iterations using purged walk-forward validation, grouped permutation tests, Benjamini-Hochberg correction, placebo tests, matched controls and a reconstructed point-in-time S&P 500 universe.",
     "impact": [
@@ -176,46 +215,8 @@ export const projects = [
     ]
   },
   {
-    "slug": "due-diligence-game",
-    "title": "Due Diligence — Compliance Training Game",
-    "section": "featured",
-    "status": "Interactive Learning · Team Project",
-    "accent": "lime",
-    "short": "An interactive Genially game that places the learner in the role of a compliance officer reviewing fictional client files and making approve/reject decisions under time pressure.",
-    "problem": "Traditional compliance training can be passive. The objective was to turn the new AML/CFT manual into a memorable decision-based learning experience.",
-    "approach": "Created fictional cases, documents, client images, audio and decision consequences. Generative AI supported creation of synthetic materials, while the compliance manual provided the technical rules.",
-    "impact": [
-      "Interactive case-based learning experience",
-      "Physical-person, self-employed and legal-entity file scenarios",
-      "Incorrect decisions lead to narrative consequences",
-      "Synthetic client documents and visuals created for training",
-      "Built collaboratively by Alexis Gómez, Yunior Custodio and Shelsy Alix"
-    ],
-    "tools": [
-      "Genially",
-      "Generative AI",
-      "Compliance",
-      "Gamification",
-      "Instructional Design",
-      "Interactive Storytelling"
-    ],
-    "images": [
-      "/projects/game-cover-clean.webp",
-      "/projects/game-manual.webp"
-    ],
-    "links": {
-      "Play Demo": "https://view.genially.com/68e7262b81a3cf59c46a98ed"
-    },
-    "methodology": [
-      "Map manual requirements into reviewable case rules.",
-      "Create synthetic files and supporting client documentation.",
-      "Introduce decision pressure and consequences to reinforce attention to detail.",
-      "Use interactive navigation and audio/visual elements to make training more immersive."
-    ]
-  },
-  {
     "slug": "bi-dashboards",
-    "title": "BI Dashboards — Compliance, Investor & Employee Analytics",
+    "title": "BI Dashboards - Compliance, Investor & Employee Analytics",
     "section": "internal",
     "status": "Business Intelligence · Visual",
     "accent": "cyan",
@@ -293,8 +294,8 @@ export const projects = [
     "impact": [
       "164,737 household records across 2018, 2019, 2021 and early 2022",
       "15 independent multidimensional variables",
-      "Random Forest performed best for general poverty with accuracy close to 80%",
-      "XGBoost was especially informative for extreme poverty",
+      "Random Forest: 75.4% accuracy, 70.5% recall, 50.0% precision and F1-score 0.5856 for general poverty",
+      "For extreme poverty, XGBoost achieved the highest F1-score (0.2153) while the neural network had the highest recall (0.8179)",
       "Key factors included overcrowding, educational delay, lack of health insurance and absence of household income"
     ],
     "tools": [
@@ -319,7 +320,7 @@ export const projects = [
   },
   {
     "slug": "law-28-01",
-    "title": "Industrial Policy Evaluation — Law 28-01",
+    "title": "Industrial Policy Evaluation - Law 28-01",
     "section": "research",
     "status": "Master of Public Policy · KDI",
     "accent": "navy",
