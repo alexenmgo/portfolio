@@ -18,3 +18,7 @@ Next.js portfolio for GitHub + Vercel.
 
 ## Deploy
 Upload the CONTENTS of this folder into the root of `alexenmgo/portfolio` and commit. Vercel should redeploy automatically.
+
+## Light / Dark theme
+
+The header includes a Light/Dark toggle. Dark remains the default, and the user's choice is stored in localStorage. The light palette is the "Claro limpio" palette defined in `app/globals.css`.
